@@ -15,9 +15,13 @@ angular.module('sbAdminApp')
 
     //this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
 
-    IdeaService.getIdeas().then(function(response) {
-      self.ideas = response.data;
-    });
+    function getIdeas() {
+      IdeaService.getIdeas().then(function(response) {
+        self.ideas = response.data;
+      });
+    }
+
+    getIdeas();
 
     this.addIdea = function(title) {
       var idea = {
@@ -35,7 +39,9 @@ angular.module('sbAdminApp')
     };
 
     this.deleteIdea = function(idea) {
-
+      IdeaService.deleteIdea(idea._id).then(function(response) {
+        getIdeas();
+      });
     };
 
 });
