@@ -1,6 +1,6 @@
 'use strict'
 angular.module('sbAdminApp')
-  .controller('DashboardCtrl', function(UserService, $state) {
+  .controller('DashboardCtrl', function(UserService, IdeaService, $state) {
 
     var self = this;
 
@@ -10,17 +10,38 @@ angular.module('sbAdminApp')
 
     this.logout = function() {
       localStorage.removeItem('token');
-      $state.go('login')
+      $state.go('login');
+    };
+
+    //this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
+
+    function getIdeas() {
+      IdeaService.getIdeas().then(function(response) {
+        self.ideas = response.data;
+      });
     }
 
-    this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
+    getIdeas();
 
     this.addIdea = function(title) {
-      this.ideas.push({title: title});
-    }
+      var idea = {
+        title: title,
+        member_id: this.me.id
+      };
+
+      IdeaService.addIdea(idea).then(function(response) {
+        if(response.status == 200) {
+          self.ideas.push(response.data);
+        } else {
+          alert("Error on sending data");
+        }
+      });
+    };
 
     this.deleteIdea = function(idea) {
-
-    }
+      IdeaService.deleteIdea(idea._id).then(function(response) {
+        getIdeas();
+      });
+    };
 
 });

@@ -40,12 +40,30 @@ module.exports.create = function() {
     handler: function (request, reply) {
       var idea = new IdeaModel(request.payload);
 
-      idea.save(function (err) {
+      idea.save(function (err, data) {
         if (err) {
           return reply(Boom.badRequest('db error'));
         }
 
-        return reply("ok");
+        return reply(JSON.stringify(data));
+      });
+    }
+  });
+
+	server.route({
+    method: 'DELETE',
+    path:'/{id}',
+    handler: function (request, reply) {
+      var idea = new IdeaModel(request.payload);
+
+			console.log(request.params.id);
+
+      IdeaModel.remove({ _id: request.params.id }, function (err) {
+        if (err) {
+          return reply(Boom.badRequest('db error'));
+        }
+
+        return reply();
       });
     }
   });
