@@ -23,9 +23,10 @@ angular.module('sbAdminApp')
 
     getIdeas();
 
-    this.addIdea = function(title) {
+    this.addIdea = function(title, description) {
       var idea = {
         title: title,
+        description: description,
         member_id: this.me.id
       };
 
