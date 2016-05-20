@@ -31,19 +31,32 @@ module.exports.create = function() {
       }
 
       if(request.query.exclude_member_id) {
-        query.member_id = {
-          $ne: request.query.exclude_member_id
+        query = {
+            member_id: {
+              $ne: request.query.exclude_member_id
+            }
         };
-
-        query.isPublic = true;
       }
+
 
       IdeaModel.find(query).exec(function(err, data) {
         if (err) {
           return reply(Boom.badRequest('db error'));
         }
 
-        return reply(JSON.stringify(data));
+        var result = [];
+
+        if(request.query.exclude_member_id) {
+          for(var i=0; i<data.length; i++) {
+            if(data[i].isPublic) {
+              result.push(data[i]);
+            }
+          }
+        } else {
+          result = data;
+        }
+
+        return reply(JSON.stringify(result));
       });
     }
   });
