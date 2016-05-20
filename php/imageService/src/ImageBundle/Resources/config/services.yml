@@ -1,0 +1,17 @@
+services:
+#    image.example:
+#        class: ImageBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+
+    filehandler:
+        class: ImageBundle\Handler\FileHandler
+        arguments:
+            - @request
+            - @filesystem
+            - %image.server.path%
+            - %image.server.public%
+        scope: request
+
+parameters:
+    image.server.path: /var/www/html/frontend/images
+    image.server.public: //ideaspaces.ml/images

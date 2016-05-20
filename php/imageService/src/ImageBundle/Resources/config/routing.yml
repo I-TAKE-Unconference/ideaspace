@@ -1,0 +1,4 @@
+upload:
+    path:     /upload
+    defaults: { _controller: ImageBundle:Image:upload }
+    methods: ['POST']
