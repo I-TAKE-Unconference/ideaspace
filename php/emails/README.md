@@ -1,4 +1,6 @@
-ideaspaces
+Ideaspaces email sending service
 ==========
 
-A Symfony project created on May 20, 2016, 8:38 am.
+This PHP Symfony application allows you to send emails based on various events happening in other services.
+
+The events get notified by POST requests.g
