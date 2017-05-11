@@ -68,7 +68,12 @@
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+	    "env-map": {
+                "database_name": "MYSQL_DATABASE",
+                "database_user": "MYSQL_USER",
+                "database_password": "MYSQL_PASSWORD"
+            }
         },
         "branch-alias": null
     }
