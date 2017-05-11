@@ -19,6 +19,12 @@ The entire product backlog reference is available here: http://bit.ly/idea-space
 ![QR Code](https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fbit.ly%2Fidea-spaces&chs=180x180&choe=UTF-8&chld=L|2)
 
 
-# What we built so far:
+# What we built so far is available here:
 
 http://ideaspaces.ml/
+
+
+
+# Join us on SLACK:
+
+The SlackVite mechanism is available here: http://slack.ideaspaces.ml/
