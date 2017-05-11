@@ -1,0 +1,46 @@
+AppBundle\Entity\Votes:
+    type: entity
+    table: votes
+    indexes:
+        IDX_518B7ACF5B6FEF7D:
+            columns:
+                - idea_id
+        IDX_518B7ACFA76ED395:
+            columns:
+                - user_id
+    uniqueConstraints:
+        one_vote_per_idea_per_user:
+            columns:
+                - user_id
+                - idea_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idea:
+            targetEntity: Idea
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idea_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
