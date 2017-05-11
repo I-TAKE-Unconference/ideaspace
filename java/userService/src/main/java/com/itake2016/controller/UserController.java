@@ -63,4 +63,12 @@ public class UserController {
         User user = new ObjectMapper().readValue(subject, User.class);
         return user;
     }
+
+		@RequestMapping(value = "/healthcheck", method = RequestMethod.GET)
+    @ResponseBody
+    public String healthcheck() throws IOException {
+			return "OK";
+		}
+
+
 }
