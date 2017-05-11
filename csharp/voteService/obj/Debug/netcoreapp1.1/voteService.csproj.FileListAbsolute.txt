@@ -1,0 +1,10 @@
+/Users/bogdan/Projects/voteService/bin/Debug/netcoreapp1.1/voteService.deps.json
+/Users/bogdan/Projects/voteService/bin/Debug/netcoreapp1.1/voteService.runtimeconfig.json
+/Users/bogdan/Projects/voteService/bin/Debug/netcoreapp1.1/voteService.runtimeconfig.dev.json
+/Users/bogdan/Projects/voteService/bin/Debug/netcoreapp1.1/voteService.dll
+/Users/bogdan/Projects/voteService/bin/Debug/netcoreapp1.1/voteService.pdb
+/Users/bogdan/Projects/voteService/obj/Debug/netcoreapp1.1/voteService.csprojResolveAssemblyReference.cache
+/Users/bogdan/Projects/voteService/obj/Debug/netcoreapp1.1/voteService.csproj.CoreCompileInputs.cache
+/Users/bogdan/Projects/voteService/obj/Debug/netcoreapp1.1/voteService.AssemblyInfo.cs
+/Users/bogdan/Projects/voteService/obj/Debug/netcoreapp1.1/voteService.dll
+/Users/bogdan/Projects/voteService/obj/Debug/netcoreapp1.1/voteService.pdb
