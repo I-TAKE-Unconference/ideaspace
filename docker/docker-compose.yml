@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mysqldb:
+     image: mysql:5.7
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ideaspaces
+       MYSQL_DATABASE: ideaspaces
+       MYSQL_USER: ideaspaces
+       MYSQL_PASSWORD: ideaspaces
+
+  userService:
+    image: user-service
+    healthcheck:
+      test: mysql -uroot -p && echo 'cool, it works'
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    links:
+      - mysqldb
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/ideaspaces
+      - SPRING_DATASOURCE_USERNAME=ideaspaces
+      - SPRING_DATASOURCE_PASSWORD=ideaspaces
